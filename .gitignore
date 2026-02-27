@@ -1,0 +1,25 @@
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Mac
+.DS_Store
+
+# External data files (do not commit)
+GeoLite2-Country.mmdb
+apache_log.txt
+
+# Build / dist
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
