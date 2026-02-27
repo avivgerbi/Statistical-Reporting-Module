@@ -36,12 +36,11 @@ def format_section(title: str, counter: Counter, total: int, cfg: ReportConfig) 
 
 def format_report(counts_by_dimension: dict[str, Counter], total: int, cfg: ReportConfig) -> str:
     parts: list[str] = []
-    # enforce required order: Country, OS, Browser
     order = ["Country", "OS", "Browser"]
     for name in order:
         if name in counts_by_dimension:
             parts.append(format_section(name, counts_by_dimension[name], total, cfg))
-    # include any extra dimensions (extensibility)
+
     for name in counts_by_dimension:
         if name not in order:
             parts.append(format_section(name, counts_by_dimension[name], total, cfg))

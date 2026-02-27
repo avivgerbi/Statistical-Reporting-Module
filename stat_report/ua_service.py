@@ -3,9 +3,6 @@ from ua_parser import user_agent_parser
 
 @dataclass(frozen=True)
 class UserAgentService:
-    """
-    Parses User-Agent -> OS + Browser using ua-parser.
-    """
 
     def parse(self, ua: str) -> dict:
         if not ua or ua == "Unknown":

@@ -8,10 +8,6 @@ import geoip2.errors
 
 @dataclass
 class GeoIPService:
-    """
-    Resolves IP -> Country name using a local MaxMind mmdb database.
-    IMPORTANT per assignment: use local DB, not API. :contentReference[oaicite:2]{index=2}
-    """
     mmdb_path: str
     _reader: Optional[geoip2.database.Reader] = None
 

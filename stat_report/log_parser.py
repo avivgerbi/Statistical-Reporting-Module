@@ -2,10 +2,6 @@ import re
 from typing import Iterator, TextIO
 from .models import LogRecord
 
-# Apache "combined" has quoted request, referrer, and user-agent.
-# We'll parse robustly:
-# - IP is first token (before first space)
-# - user-agent is last quoted string
 _IP_RE = re.compile(r"^(?P<ip>\S+)\s+")
 _QUOTED_RE = re.compile(r'"([^"]*)"')
 
@@ -13,10 +9,7 @@ class LogParseError(Exception):
     pass
 
 def iter_records(fp: TextIO) -> Iterator[LogRecord]:
-    """
-    Stream-parse an Apache log file into LogRecord items.
-    Skips malformed lines but keeps processing.
-    """
+
     for line_num, line in enumerate(fp, start=1):
         line = line.strip()
         if not line:
